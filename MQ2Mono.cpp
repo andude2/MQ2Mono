@@ -227,6 +227,7 @@ void InitMono()
 
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_TableHeadersRow", &mono_ImGUI_TableHeadersRow);
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_TableNextRow", &mono_ImGUI_TableNextRow);
+    mono_add_internal_call("MonoCore.E3ImGUI::imgui_TableNextRowEx", &mono_ImGUI_TableNextRowEx);
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_TableNextColumn", &mono_ImGUI_TableNextColumn);
 
     // Colors / styled text
@@ -296,7 +297,10 @@ void InitMono()
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_DrawSpellIconBySpellID", &mono_ImGUI_DrawSpellIconBySpellID);
 
     // Drawing functions for custom backgrounds
+    mono_add_internal_call("MonoCore.E3ImGUI::imgui_GetCursorPosX", &mono_ImGUI_GetCursorPosX);
+    mono_add_internal_call("MonoCore.E3ImGUI::imgui_SetCursorPosX", &mono_ImGUI_SetCursorPosX);
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_GetCursorPosY", &mono_ImGUI_GetCursorPosY);
+    mono_add_internal_call("MonoCore.E3ImGUI::imgui_SetCursorPosY", &mono_ImGUI_SetCursorPosY);
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_GetCursorScreenPosX", &mono_ImGUI_GetCursorScreenPosX);
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_GetCursorScreenPosY", &mono_ImGUI_GetCursorScreenPosY);
     mono_add_internal_call("MonoCore.E3ImGUI::imgui_GetTextLineHeightWithSpacing", &mono_ImGUI_GetTextLineHeightWithSpacing);

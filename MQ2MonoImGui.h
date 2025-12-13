@@ -77,6 +77,7 @@ void mono_ImGUI_EndTable();
 void mono_ImGUI_TableSetupColumn(MonoString* label, int flags, float init_width);
 void mono_ImGUI_TableHeadersRow();
 void mono_ImGUI_TableNextRow();
+void mono_ImGUI_TableNextRowEx(int row_flags, float min_row_height);
 bool mono_ImGUI_TableNextColumn();
 void mono_ImGUI_TableSetColumnIndex(int index);
 void mono_ImGUI_PushID(int id);
@@ -146,12 +147,15 @@ void mono_ImGUI_PopFont();
 void mono_ImGUI_PushMaterialIconsFont();
 
 // Drawing functions for custom backgrounds
+float mono_ImGUI_GetCursorPosX();
+void mono_ImGUI_SetCursorPosX(float x);
 float mono_ImGUI_GetCursorPosY();
+void mono_ImGUI_SetCursorPosY(float y);
 float mono_ImGUI_GetCursorScreenPosX();
 float mono_ImGUI_GetCursorScreenPosY();
 float mono_ImGUI_GetTextLineHeightWithSpacing();
 float mono_ImGUI_GetFrameHeight();
-void mono_ImGUI_GetWindowDrawList_AddRectFilled(float x1, float y1, float x2, float y2, uint32_t color);
+void mono_ImGUI_GetWindowDrawList_AddRectFilled(float x1, float y1, float x2, float y2, uint32_t color, float rounding, int draw_flags);
 void mono_ImGUI_GetWindowDrawList_AddText(float x, float y, uint32_t color, MonoString* text);
 
 // Item rect bounds and color helpers

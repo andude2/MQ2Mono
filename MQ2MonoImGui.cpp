@@ -270,6 +270,10 @@ void mono_ImGUI_TableNextRow()
 {
 	ImGui::TableNextRow();
 }
+void mono_ImGUI_TableNextRowEx(int row_flags, float min_row_height)
+{
+	ImGui::TableNextRow((ImGuiTableRowFlags)row_flags, min_row_height);
+}
 bool mono_ImGUI_TableNextColumn()
 {
 	return ImGui::TableNextColumn();
@@ -947,9 +951,24 @@ void mono_ImGUI_DrawSpellIconBySpellID(int spellId, float size)
 }
 
 // Drawing functions for custom backgrounds
+float mono_ImGUI_GetCursorPosX()
+{
+	return ImGui::GetCursorPosX();
+}
+
+void mono_ImGUI_SetCursorPosX(float x)
+{
+	ImGui::SetCursorPosX(x);
+}
+
 float mono_ImGUI_GetCursorPosY()
 {
 	return ImGui::GetCursorPosY();
+}
+
+void mono_ImGUI_SetCursorPosY(float y)
+{
+	ImGui::SetCursorPosY(y);
 }
 
 float mono_ImGUI_GetCursorScreenPosX()
@@ -974,13 +993,13 @@ float mono_ImGUI_GetFrameHeight()
 
 
 
-void mono_ImGUI_GetWindowDrawList_AddRectFilled(float x1, float y1, float x2, float y2, uint32_t color)
+void mono_ImGUI_GetWindowDrawList_AddRectFilled(float x1, float y1, float x2, float y2, uint32_t color, float rounding, int draw_flags)
 {
-    ImDrawList* drawList = ImGui::GetWindowDrawList();
-    if (drawList)
-    {
-        drawList->AddRectFilled(ImVec2(x1, y1), ImVec2(x2, y2), color);
-    }
+	ImDrawList* drawList = ImGui::GetWindowDrawList();
+	if (drawList)
+	{
+		drawList->AddRectFilled(ImVec2(x1, y1), ImVec2(x2, y2), color, rounding, static_cast<ImDrawFlags>(draw_flags));
+	}
 }
 
 void mono_ImGUI_GetWindowDrawList_AddText(float x, float y, uint32_t color, MonoString* text)
